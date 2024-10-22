@@ -1,6 +1,8 @@
 import { EndpointId } from '@layerzerolabs/lz-definitions'
 import { ExecutorOptionType } from '@layerzerolabs/lz-v2-utilities'
 
+import contractsConfig from './contracts.json'
+
 import type { OAppOmniGraphHardhat, OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
 
 const baseContract: OmniPointHardhat = {
@@ -39,114 +41,76 @@ const config: OAppOmniGraphHardhat = {
         },
     ],
     connections: [
+        // base <-> ethereum
         {
             from: baseContract,
             to: ethereumContract,
             config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
-            },
-        },
-        {
-            from: baseContract,
-            to: arbitrumContract,
-            config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
-            },
-        },
-        {
-            from: baseContract,
-            to: degenContract,
-            config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
                 sendConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x9e059a54699a285714207b43B055483E78FAac25'],
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x9e059a54699a285714207b43B055483E78FAac25'],
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
                     },
                 },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
             },
         },
         {
             from: ethereumContract,
             to: baseContract,
             config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
-            },
-        },
-        {
-            from: ethereumContract,
-            to: arbitrumContract,
-            config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
-            },
-        },
-        {
-            from: ethereumContract,
-            to: degenContract,
-            config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
                 sendConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x589dEDbD617e0CBcB916A9223F4d1300c294236b'],
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x589dEDbD617e0CBcB916A9223F4d1300c294236b'],
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
                     },
                 },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
             },
         },
+        // base <-> arbitrum
         {
-            from: arbitrumContract,
-            to: baseContract,
+            from: baseContract,
+            to: arbitrumContract,
             config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                    },
+                },
                 enforcedOptions: [
                     {
                         msgType: 1,
@@ -159,8 +123,100 @@ const config: OAppOmniGraphHardhat = {
         },
         {
             from: arbitrumContract,
-            to: ethereumContract,
+            to: baseContract,
             config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                    },
+                },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
+            },
+        },
+        // base <-> degen
+        {
+            from: baseContract,
+            to: degenContract,
+            config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.nethermindDVN],
+                    },
+                },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 200000,
+                        value: 0,
+                    },
+                ],
+            },
+        },
+        {
+            from: degenContract,
+            to: baseContract,
+            config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(10),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
+            },
+        },
+        // ethereum <-> arbitrum
+        {
+            from: ethereumContract,
+            to: arbitrumContract,
+            config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                    },
+                },
                 enforcedOptions: [
                     {
                         msgType: 1,
@@ -173,32 +229,47 @@ const config: OAppOmniGraphHardhat = {
         },
         {
             from: arbitrumContract,
-            to: degenContract,
+            to: ethereumContract,
             config: {
-                enforcedOptions: [
-                    {
-                        msgType: 1,
-                        optionType: ExecutorOptionType.LZ_RECEIVE,
-                        gas: 200000,
-                        value: 0,
-                    },
-                ],
                 sendConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x2f55C492897526677C5B68fb199ea31E2c126416'],
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
-                        requiredDVNs: ['0x2f55C492897526677C5B68fb199ea31E2c126416'],
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
                     },
                 },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
             },
         },
+        // ethereum <-> degen
         {
-            from: degenContract,
-            to: baseContract,
+            from: ethereumContract,
+            to: degenContract,
             config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.nethermindDVN],
+                    },
+                },
                 enforcedOptions: [
                     {
                         msgType: 1,
@@ -207,22 +278,51 @@ const config: OAppOmniGraphHardhat = {
                         value: 0,
                     },
                 ],
-                sendConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
-                receiveConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
             },
         },
         {
             from: degenContract,
             to: ethereumContract,
             config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(15),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 100000,
+                        value: 0,
+                    },
+                ],
+            },
+        },
+        // arbitrum <-> degen
+        {
+            from: arbitrumContract,
+            to: degenContract,
+            config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.nethermindDVN],
+                    },
+                },
                 enforcedOptions: [
                     {
                         msgType: 1,
@@ -231,22 +331,24 @@ const config: OAppOmniGraphHardhat = {
                         value: 0,
                     },
                 ],
-                sendConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
-                receiveConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
             },
         },
         {
             from: degenContract,
             to: arbitrumContract,
             config: {
+                sendConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(21),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
+                receiveConfig: {
+                    ulnConfig: {
+                        confirmations: BigInt(20),
+                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                    },
+                },
                 enforcedOptions: [
                     {
                         msgType: 1,
@@ -255,16 +357,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 0,
                     },
                 ],
-                sendConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
-                receiveConfig: {
-                    ulnConfig: {
-                        requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
-                    },
-                },
             },
         },
     ],
