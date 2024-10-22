@@ -14,6 +14,8 @@ import { HardhatUserConfig, HttpNetworkAccountsUserConfig } from 'hardhat/types'
 import { EndpointId } from '@layerzerolabs/lz-definitions'
 
 import './tasks/oft-adapter-send'
+import './tasks/native-oft-adapter-send'
+import './tasks/oft-send'
 
 // Set your preferred authentication method
 //
