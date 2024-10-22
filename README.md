@@ -108,3 +108,11 @@ By following these steps, you can focus more on creating innovative omnichain so
 <p align="center">
   Join our community on <a href="https://discord-layerzero.netlify.app/discord" style="color: #a77dff">Discord</a> | Follow us on <a href="https://twitter.com/LayerZero_Labs" style="color: #a77dff">Twitter</a>
 </p>
+
+## 3) Wiring Contract
+
+The CLI Tool makes this one step easier by enabling you to wire and configure your contract pathways with a single command:
+
+```bash
+npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
+```
