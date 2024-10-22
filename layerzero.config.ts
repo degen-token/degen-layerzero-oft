@@ -5,7 +5,7 @@ import type { OAppOmniGraphHardhat, OmniPointHardhat } from '@layerzerolabs/tool
 
 const baseContract: OmniPointHardhat = {
     eid: EndpointId.BASE_V2_MAINNET,
-    contractName: 'DEGENOFTAdapter',
+    contractName: 'OrbitERC20OFTAdapter',
 }
 
 const ethereumContract: OmniPointHardhat = {
@@ -20,7 +20,7 @@ const arbitrumContract: OmniPointHardhat = {
 
 const degenContract: OmniPointHardhat = {
     eid: EndpointId.DEGEN_V2_MAINNET,
-    contractName: 'DEGENOFT',
+    contractName: 'OrbitNativeOFTAdapter',
 }
 
 const config: OAppOmniGraphHardhat = {
