@@ -49,12 +49,12 @@ const config: HardhatUserConfig = {
         ],
     },
     networks: {
-        'arbitrum': {
+        arbitrum: {
             eid: EndpointId.ARBITRUM_V2_MAINNET,
             url: process.env.RPC_URL_ARBITRUM || 'https://arb1.arbitrum.io/rpc',
             accounts,
         },
-        'base': {
+        base: {
             eid: EndpointId.BASE_V2_MAINNET,
             url: process.env.RPC_URL_BASE || 'https://mainnet.base.org',
             accounts,
@@ -64,7 +64,7 @@ const config: HardhatUserConfig = {
             url: process.env.RPC_URL_ETHEREUM || 'https://mainnet.gateway.tenderly.co',
             accounts,
         },
-        'degen': {
+        degen: {
             eid: EndpointId.DEGEN_V2_MAINNET,
             url: process.env.RPC_URL_DEGEN || 'https://rpc.degen.tips',
             accounts,
