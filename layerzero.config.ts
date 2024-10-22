@@ -49,13 +49,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -75,13 +83,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -102,13 +118,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -128,13 +152,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -155,13 +187,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.base.lzDVN, contractsConfig.base.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.base.stargateDVN,
+                            contractsConfig.base.lzDVN,
+                            contractsConfig.base.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -181,13 +221,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(10),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -208,13 +256,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -234,13 +290,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.polyhedraDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.polyhedraDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.polyhedraDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -261,13 +325,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.ethereum.lzDVN, contractsConfig.ethereum.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.ethereum.stargateDVN,
+                            contractsConfig.ethereum.lzDVN,
+                            contractsConfig.ethereum.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -287,13 +359,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(15),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -314,13 +394,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.arbitrum.lzDVN, contractsConfig.arbitrum.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.arbitrum.stargateDVN,
+                            contractsConfig.arbitrum.lzDVN,
+                            contractsConfig.arbitrum.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
@@ -340,13 +428,21 @@ const config: OAppOmniGraphHardhat = {
                 sendConfig: {
                     ulnConfig: {
                         confirmations: BigInt(21),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 receiveConfig: {
                     ulnConfig: {
                         confirmations: BigInt(20),
-                        requiredDVNs: [contractsConfig.degen.lzDVN, contractsConfig.degen.nethermindDVN],
+                        requiredDVNs: [
+                            contractsConfig.degen.stargateDVN,
+                            contractsConfig.degen.lzDVN,
+                            contractsConfig.degen.nethermindDVN,
+                        ],
                     },
                 },
                 enforcedOptions: [
