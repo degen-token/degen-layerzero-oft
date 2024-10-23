@@ -116,3 +116,29 @@ The CLI Tool makes this one step easier by enabling you to wire and configure yo
 ```bash
 npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
 ```
+
+## 3) Testing Pathway
+
+Script for sending OFT from Base to Degen:
+
+```bash
+npx hardhat lz:oftadapter:send --adapter 0xdb8e759859058952c34953c8469f464109826e52 --to 0x3C12B77aE8B7DD1FEB63D1D6a2A819AcdA0a41d2 --destination degen --network base --amount 1
+```
+
+Script for sending OFT from Base to Arbitrum:
+
+```bash
+npx hardhat lz:oftadapter:send --adapter 0xdb8e759859058952c34953c8469f464109826e52 --to 0x3C12B77aE8B7DD1FEB63D1D6a2A819AcdA0a41d2 --destination arbitrum --network base --amount 1
+```
+
+Script for sending OFT from Degen to Ethereum:
+
+```bash
+npx hardhat lz:nativeoftadapter:send --adapter 0x962311BAF97E6E703f219aE251A181Fb8Cb9F258 --to 0x3C12B77aE8B7DD1FEB63D1D6a2A819AcdA0a41d2 --destination ethereum --amount 0.001 --network degen
+```
+
+Script for sending OFT from Arbitrum to Ethereum:
+
+```bash
+npx hardhat lz:oft:send --oft 0x9F07F8A82cB1af1466252e505b7b7ddee103bC91 --to 0x3C12B77aE8B7DD1FEB63D1D6a2A819AcdA0a41d2 --amount 0.001 --network arbitrum --destination base
+```
